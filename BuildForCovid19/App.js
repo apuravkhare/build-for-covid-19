@@ -5,6 +5,8 @@ import HomeScreen from './screens/HomeScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import CategoryScreen from './screens/CategoryScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import CameraScreen from './screens/CameraScreen';
 
 const Stack = createStackNavigator();
 
@@ -24,7 +26,9 @@ export default class App extends Component {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
-          <Stack.Screen name="Category" component={CategoryScreen} options={{title:"I need..."}} />
+          <Stack.Screen name="Category" component={CategoryScreen} options={{title:"I need help with..."}} />
+          <Stack.Screen name="Profile" component={ProfileScreen} options={{title:"A few details"}} />
+          <Stack.Screen name="Camera" component={CameraScreen} options={{headerShown: false}} />
         </Stack.Navigator>
       </NavigationContainer>
     );
@@ -35,7 +39,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF',
-    // borderWidth: 1
   },
   welcome: {
     fontSize: 20,
