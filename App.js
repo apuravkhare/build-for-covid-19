@@ -7,6 +7,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import CategoryScreen from './screens/CategoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import CameraScreen from './screens/CameraScreen';
+import ConfirmationScreen from './screens/ConfirmationScreen';
+import MatchScreen from './screens/MatchScreen';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +31,8 @@ export default class App extends Component {
           <Stack.Screen name="Category" component={CategoryScreen} options={{title:"I need help with..."}} />
           <Stack.Screen name="Profile" component={ProfileScreen} options={{title:"A few details"}} />
           <Stack.Screen name="Camera" component={CameraScreen} options={{headerShown: false}} />
+          <Stack.Screen name="Confirmation" component={ConfirmationScreen} options={{title:"Confirmation"}} />
+          <Stack.Screen name="Match" component={MatchScreen} options={{title:"Matched"}} />
         </Stack.Navigator>
       </NavigationContainer>
     );

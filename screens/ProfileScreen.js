@@ -8,6 +8,16 @@ export default function ProfileScreen({route, navigation}) {
   const [address2Value, onChangeAddress2Text] = React.useState('');
   const [zipValue, onChangeZipText] = React.useState('');
 
+  function createProfile() {
+    return {
+      'name': nameValue,
+      'address1': address1Value,
+      'address2': address2Value,
+      'zip': zipValue
+    };
+  }
+  
+
   return (
     <View>
       <View style={styles.textBoxHolder}>
@@ -45,12 +55,12 @@ export default function ProfileScreen({route, navigation}) {
           keyboardType='numeric'
         />
       </View>
-      {getItemSpecificView(item, navigation)}
+      {getItemSpecificView(item, navigation, createProfile)}
     </View>
   );
 }
 
-function getItemSpecificView(item, navigation) {
+function getItemSpecificView(item, navigation, createProfile) {
   switch (item.id) {
     case 'groceries':
       return (
@@ -59,7 +69,7 @@ function getItemSpecificView(item, navigation) {
     case 'medicine':
       return (
         <View style={styles.buttonHolder}>
-          <Button title="Add prescription" onPress={ (event) => {navigation.navigate('Camera')} }></Button>
+          <Button title="Add prescription" onPress={ (event) => {navigation.navigate('Camera', { item: item, profile: createProfile() })} }></Button>
         </View>
       );
     case 'deliver':

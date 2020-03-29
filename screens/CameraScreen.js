@@ -1,10 +1,23 @@
 import React, { Component, useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Button, Text, View, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 
-export default function CameraScreen() {
+
+
+export default function CameraScreen({route, navigation}) {
+  const { item } = route.params;
+  const { profile } = route.params;
+  var cameraRef;
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
+
+  async function takePicture() {
+    if (cameraRef) {
+      const data = await cameraRef.takePictureAsync();
+      // console.log(data);
+      navigation.navigate('Confirmation', { item: item, image: data, profile: profile })
+    }
+  }
 
   useEffect(() => {
     (async () => {
@@ -23,7 +36,7 @@ export default function CameraScreen() {
 
   return (
     <View style={{ flex: 1 }}>
-      <Camera style={{ flex: 1 }} type={type}>
+      <Camera style={{ flex: 1 }} type={type} ref={(ref) => { cameraRef = ref }}>
         <View
           style={{
             flex: 1,
@@ -43,10 +56,14 @@ export default function CameraScreen() {
                   : Camera.Constants.Type.back
               );
             }}>
-            <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
+            {/* <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text> */}
           </TouchableOpacity>
         </View>
       </Camera>
+      <View style={{ marginHorizontal: 10, marginVertical: 10, backgroundColor: '#000000'}}>
+        <Button title="Add prescription"  onPress={ (event) => {takePicture()} }></Button>
+      </View>
     </View>
   );
 }
+
