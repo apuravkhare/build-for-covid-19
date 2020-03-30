@@ -9,6 +9,10 @@ import ProfileScreen from './screens/ProfileScreen';
 import CameraScreen from './screens/CameraScreen';
 import ConfirmationScreen from './screens/ConfirmationScreen';
 import MatchScreen from './screens/MatchScreen';
+import DeliveryScreen from './screens/DeliveryScreen';
+import GroceriesScreen from './screens/GroceriesScreen';
+import OtherScreen from './screens/OtherScreen';
+import MultiCategoryScreen from './screens/MultiCategoryScreen';
 
 const Stack = createStackNavigator();
 
@@ -29,8 +33,12 @@ export default class App extends Component {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
           <Stack.Screen name="Category" component={CategoryScreen} options={{title:"I need help with..."}} />
+          <Stack.Screen name="MultiCategory" component={MultiCategoryScreen} options={{title:"I can help with..."}} />
           <Stack.Screen name="Profile" component={ProfileScreen} options={{title:"A few details"}} />
           <Stack.Screen name="Camera" component={CameraScreen} options={{headerShown: false}} />
+          <Stack.Screen name="Deilvery" component={DeliveryScreen} options={{title:"Item details"}} />
+          <Stack.Screen name="Groceries" component={GroceriesScreen} options={{title:"Grocery items"}} />
+          <Stack.Screen name="Other" component={OtherScreen} options={{title:"Other pickup"}} />
           <Stack.Screen name="Confirmation" component={ConfirmationScreen} options={{title:"Confirmation"}} />
           <Stack.Screen name="Match" component={MatchScreen} options={{title:"Matched"}} />
         </Stack.Navigator>

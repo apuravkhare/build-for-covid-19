@@ -7,13 +7,15 @@ export default function ProfileScreen({route, navigation}) {
   const [address1Value, onChangeAddress1Text] = React.useState('');
   const [address2Value, onChangeAddress2Text] = React.useState('');
   const [zipValue, onChangeZipText] = React.useState('');
+  const [contactValue, onChangeContactText] = React.useState('');
 
   function createProfile() {
     return {
       'name': nameValue,
       'address1': address1Value,
       'address2': address2Value,
-      'zip': zipValue
+      'zip': zipValue,
+      'contact': contactValue
     };
   }
   
@@ -55,6 +57,16 @@ export default function ProfileScreen({route, navigation}) {
           keyboardType='numeric'
         />
       </View>
+      <View style={styles.textBoxHolder}>
+        <TextInput
+          style={styles.textBox}
+          onChangeText={text => onChangeContactText(text)}
+          value={contactValue}
+          placeholder="Phone"
+          autoCompleteType='tel'
+          keyboardType='phone-pad'
+        />
+      </View>
       {getItemSpecificView(item, navigation, createProfile)}
     </View>
   );
@@ -64,7 +76,9 @@ function getItemSpecificView(item, navigation, createProfile) {
   switch (item.id) {
     case 'groceries':
       return (
-        <View></View>
+        <View style={styles.buttonHolder}>
+          <Button title="Add items" onPress={ (event) => {navigation.navigate('Groceries', { item: item, profile: createProfile() })} }></Button>
+        </View>
       );
     case 'medicine':
       return (
@@ -74,11 +88,15 @@ function getItemSpecificView(item, navigation, createProfile) {
       );
     case 'deliver':
       return (
-        <View></View>
+        <View style={styles.buttonHolder}>
+          <Button title="Add item details" onPress={ (event) => {navigation.navigate('Deilvery', { item: item, profile: createProfile() })} }></Button>
+        </View>
       );
     case 'other':
       return (
-        <View></View>
+        <View style={styles.buttonHolder}>
+          <Button title="Add pickup details" onPress={ (event) => {navigation.navigate('Other', { item: item, profile: createProfile() })} }></Button>
+        </View>
       );
   }
 }

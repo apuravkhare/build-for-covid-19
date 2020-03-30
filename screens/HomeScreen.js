@@ -9,9 +9,11 @@ export default function HomeScreen({navigation}) {
           <Text style={styles.textAssistance}>I require assistance</Text>
         </View>
       </TouchableOpacity>
-      <View style={styles.homeItemHelp}>
-        <Text style={styles.textHelp}>I can help</Text>
-      </View>
+      <TouchableOpacity style={styles.homeItemHelp} onPress = { (event) => {navigation.navigate('MultiCategory')} }>
+        <View>
+          <Text style={styles.textHelp}>I can help</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 }
