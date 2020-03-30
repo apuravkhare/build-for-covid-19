@@ -17,6 +17,7 @@ A volunteer can choose to help in one or more of these categories. Users are mat
 
 <img src="https://github.com/apuravkhare/build-for-covid-19/blob/master/screenshots/Screenshot_20200329-222919.jpg" width="300">  <img src="https://github.com/apuravkhare/build-for-covid-19/blob/master/screenshots/Screenshot_20200329-222924.jpg" width="300"> 
 <img src="https://github.com/apuravkhare/build-for-covid-19/blob/master/screenshots/Screenshot_20200329-223033.jpg" width="300">  <img src="https://github.com/apuravkhare/build-for-covid-19/blob/master/screenshots/Screenshot_20200329-223108.jpg" width="300"> 
+<img src="https://github.com/apuravkhare/build-for-covid-19/blob/master/screenshots/Screenshot_20200329-223350.jpg" width="300"> 
 
 # Dev notes and dependencies:
 - Built off the 'minimal' react native template. Make sure that Node 12 or greater is installed, then install Expo.
