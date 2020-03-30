@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { ActivityIndicator, Button, FlatList, Linking, Platform, Text, View, StyleSheet } from 'react-native';
 
 const matched = {
-  'name': 'Test Name',
-  'contact': '5854832642',
+  'name': 'Rebecca',
+  'contact': '000000000',
   'item': {
     id: "groceries",
     display: "Groceries"
   },
-  'groceries': [ "Milk", "Bread", "Eggs" ]
+  'groceries': [ "Milk", "Bread", "Eggs", "Olive Oil" ]
 };
 
 export default function MatchScreen({route, navigation}) {
@@ -78,6 +78,7 @@ function getCategoryDisplay(item, image, delivery, groceries, pickup) {
               <View style={styles.hr} />
             </View>
             }
+          keyExtractor={item => item}
           />
         </View>
       );

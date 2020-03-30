@@ -12,6 +12,14 @@
       "ios",
       "android",
       "web"
-    ]
+    ],
+    "android": {
+      "package": "com.apuravkhare.covid19",
+      "versionCode": 1
+    },
+    "ios": {
+      "bundleIdentifier": "com.apuravkhare.covid19",
+      "buildNumber": "1.0.0"
+    }
   }
 }

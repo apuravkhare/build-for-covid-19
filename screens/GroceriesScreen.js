@@ -38,6 +38,7 @@ export default class GroceriesScreen extends Component {
               <View style={this.styles.hr} />
             </View>
           }
+          keyExtractor={item => item}
         />
         <View style={this.styles.textBoxHolder}>
           <TextInput
